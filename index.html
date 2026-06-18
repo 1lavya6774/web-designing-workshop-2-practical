@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Result System</title>
+</head>
+<body>
+    <h2>Student Result System</h2>
+
+    Subject 1: <input type="number" id="s1"><br><br>
+    Subject 2: <input type="number" id="s2"><br><br>
+    Subject 3: <input type="number" id="s3"><br><br>
+    Subject 4: <input type="number" id="s4"><br><br>
+    Subject 5: <input type="number" id="s5"><br><br>
+
+    <button onclick="calculateResult()">Calculate Result</button>
+
+    <h3 id="output"></h3>
+
+    <script>
+        function calculateResult() {
+            let s1 = Number(document.getElementById("s1").value);
+            let s2 = Number(document.getElementById("s2").value);
+            let s3 = Number(document.getElementById("s3").value);
+            let s4 = Number(document.getElementById("s4").value);
+            let s5 = Number(document.getElementById("s5").value);
+            let total = s1 + s2 + s3 + s4 + s5;
+            let percentage = total / 5;
+            let result;
+            if (percentage >= 75) {
+                result = "Distinction";
+            } 
+            else if (percentage >= 60) {
+                result = "First Class";
+            } 
+            else if (percentage >= 40) {
+                result = "Second Class";
+            } 
+            else {
+                result = "Fail";
+            }
+
+            document.getElementById("output").innerHTML =
+                "Total Marks: " + total +
+                "<br>Percentage: " + percentage.toFixed(2) + "%" +
+                "<br>Result: " + result;
+        }
+    </script>
+
+</body>
+</html>
